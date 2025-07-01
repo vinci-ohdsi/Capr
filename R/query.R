@@ -249,6 +249,22 @@ observation <- function(conceptSet, ...) {
         ...)
 }
 
+
+#' Query the location region domain
+#'
+#' @param conceptSet A concept set with Geographic entities used in
+#' the region_concept_id field of location_history
+#' @param ... optional attributes
+#'
+#' @return A Capr Query
+#' @export
+locationRegion <- function(conceptSet, ...) {
+
+  query(domain = "LocationRegion",
+        conceptSet = conceptSet,
+        ...)
+}
+
 #' Query the observation period domain
 #'
 #' @param ... optional attributes
