@@ -120,7 +120,7 @@ query <- function(domain, conceptSet = NULL, ...) {
 #'
 #' @return A Capr Query
 #' @export
-locationRegion <- function(conceptSet, ...) {
+careSite <- function(conceptSet, ...) {
 
   query(domain = "CareSite",
         conceptSet = conceptSet,
