@@ -24,7 +24,8 @@ setClass("Query",
 )
 
 setValidity("Query", function(object) {
-  validDomains <- c("ConditionEra",
+validDomains <-   c("CareSite",
+                    "ConditionEra",
                     "ConditionOccurrence",
                     "Death",
                     "ProcedureOccurrence",
@@ -108,6 +109,22 @@ query <- function(domain, conceptSet = NULL, ...) {
 
 
   return(query)
+}
+
+
+#' Query the care site domain
+#'
+#' @param conceptSet A concept set with care site vocabulary entities
+#' used by the care_site_concept_id field in the CARE_SITE table. 
+#' @param ... optional attributes
+#'
+#' @return A Capr Query
+#' @export
+locationRegion <- function(conceptSet, ...) {
+
+  query(domain = "CareSite",
+        conceptSet = conceptSet,
+        ...)
 }
 
 #' Query the condition domain
