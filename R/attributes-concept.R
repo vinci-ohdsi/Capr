@@ -154,6 +154,39 @@ visitType <- function(ids, connection, vocabularyDatabaseSchema) {
   return(res)
 }
 
+#' Add a place of service attribute to determine the setting in which healthcare is provided 
+#' as recorded in the Care Site linked to the given Visit Occurrence record
+#' @param ids the concept ids for the attribute
+#' @param connection a connection to an OMOP dbms to get vocab info about the concept
+#' @param vocabularyDatabaseSchema the database schema for the vocabularies
+#' @return
+#' An attribute that can be used in a query function
+#' @export
+#'
+placeOfService <- function(ids, connection, vocabularyDatabaseSchema) {
+  res <- buildConceptAttribute(ids = ids, attributeName = "PlaceOfService",
+                               connection = connection,
+                               vocabularyDatabaseSchema = vocabularyDatabaseSchema)
+  return(res)
+}
+
+
+#' Add a place of service location attribute to determine the actual care site in which healthcare is provided 
+#' as recorded in the care_site_concept_id of the Care Site linked to the given Visit Occurrence record
+#' @param ids the concept ids for the attribute
+#' @param connection a connection to an OMOP dbms to get vocab info about the concept
+#' @param vocabularyDatabaseSchema the database schema for the vocabularies
+#' @return
+#' An attribute that can be used in a query function
+#' @export
+#'
+placeOfServiceLocation <- function(ids, connection, vocabularyDatabaseSchema) {
+  res <- buildConceptAttribute(ids = ids, attributeName = "PlaceOfServiceLocation",
+                               connection = connection,
+                               vocabularyDatabaseSchema = vocabularyDatabaseSchema)
+  return(res)
+}
+
 
 #' Add a measurement type attribute to determine the provenance of the record
 #' @param ids the concept ids for the attribute
